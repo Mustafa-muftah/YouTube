@@ -1,0 +1,70 @@
+@import "../../../style/constants";
+
+.spinner-container {
+  position: absolute;
+  top: 20rem;
+  right: 8rem;
+  margin: auto;
+  span{
+    position: relative;
+    top: 6rem;
+    right: 2rem;
+    font-size: 1.2rem;
+    color:$black
+  }
+}
+
+.container {
+  height: 3.5rem;
+  width: 1px;
+  position: absolute;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(-0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.container:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.container:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.container:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.container:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.container:nth-child(5) {
+  animation-delay: 1.5s;
+}
+.container:nth-child(6) {
+  animation-delay: 1.8s;
+}
+.container:nth-child(7) {
+  animation-delay: 2.1s;
+}
+.container:nth-child(8) {
+  animation-delay: 2.4s;
+}
+.container:nth-child(9) {
+  animation-delay: 2.7s;
+}
+.container:nth-child(10) {
+  animation-delay: 3s;
+}
+
+.container .circle {
+  height: 0.6rem;
+  width: 0.6rem;
+  background: #DDD;
+  border-radius: 50%;
+  animation: dots 3s linear infinite;
+}

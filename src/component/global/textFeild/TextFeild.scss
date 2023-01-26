@@ -1,0 +1,63 @@
+@import "../../../style/constants";
+
+.textFeild__wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  input {
+    width: 25rem;
+    height: 1.1rem;
+    padding: 0.6rem;
+    @media(max-width:767px){
+        background-color:$white;
+        border: none;
+        width: unset;
+    }
+  }
+  .removeBtn{
+    position: absolute;
+    right: 3.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:after{
+        font-size: 1.5rem;
+        margin-top: .1rem;
+        color: $greyColor;
+        content: "\00d7";
+    }
+    @media(max-width:767px){
+        right: 5.5rem;
+    }
+  }
+  .submit {
+    color: $greyColor;
+    background-color: $offwhite;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border-width: 0;
+    cursor: pointer;
+    border: 1px solid $greyColor;
+    border-left: none;
+    @media(max-width:767px){
+        background-color:$redColor ;
+        border: none;
+    }
+    svg{
+      font-size: 1.5rem;
+      @media(max-width:767px){
+      color: #fff;
+      font-size: 2rem;
+      }
+    }
+  }
+  img {
+    width: 1.1rem;
+    mix-blend-mode: multiply;
+    padding-top: 0.1rem;
+    @media(max-width:767px){
+    width: 2rem;
+    mix-blend-mode: unset;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@import "../../style/constants";
+
+
+//body
+
+.body{
+  background-color: $bodyBackgroundVolor;
+  @media(max-width:767px){
+    background-color: $white;
+  }
+}
+
+// searchList container 
+
+.searchResults__wrapper {
+padding: 2rem 0 0;
+border-top: 1px solid #ddd;
+@media(max-width:767px){
+  padding: 0
+}
+}
+.searchResult__container{
+ max-width: 74%;
+ margin: auto;
+ @media(max-width:767px){
+  max-width: 100%;
+ }
+ .searchResults__wrapper ul{
+  padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    li{
+      list-style: none;
+    }
+ }
+}
+
+//filter section
+
+// Filter Section
+.filter__Wrapper {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+
+
+
+

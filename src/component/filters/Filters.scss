@@ -1,0 +1,78 @@
+@import "../../style/constants";
+
+// Filter Section
+.filter__Wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 .5rem;
+    h3 {
+    font-weight: 600;
+    color: $black;
+    font-size: 1.2rem;
+    margin-left: 1.5rem;
+    font-family: $font;
+    
+    }
+    button{
+      background-color: unset;
+      border:none;
+      display:flex;
+      align-items: center;
+      cursor: pointer;
+      span{
+        font-size: 1.1rem;
+        color: $black;
+        font-family: $font;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      
+    }
+}
+  
+
+.filter__btn {
+    display: flex;
+    color: $greyColor;
+    img {
+      margin-right: 0.2rem;
+    }
+  }
+  
+ // filters options
+ .filter__options {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
+    @media(max-width:767px){
+        padding: 1rem 0rem 0.5rem .9rem;
+        justify-content: unset;
+        margin-bottom: 1rem;
+
+    }
+    .select-lists {
+      width: 9rem;
+      height: 2.5rem;
+      padding: 0.2rem;
+      font-size: 1rem;
+      background-color: $offwhite;
+      margin-right: 0.5rem;
+      font-family: $font;
+      font-weight: bold;
+      color: $black;
+      select , option{
+        font-family: $font;
+        font-weight: bold;
+      }
+    }
+ 
+ }
+ hr {
+  margin: 1rem 0;
+  border-color: #ddd;
+  background-color: #ddd;
+}
+ 
+  
+ 
