@@ -19,6 +19,7 @@ export const SearchPage: React.FC = () => {
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
+		
 	}, [NextpageToken]);
 
 	const handleScroll = () => {

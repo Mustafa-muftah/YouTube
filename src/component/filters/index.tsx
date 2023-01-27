@@ -1,13 +1,10 @@
-
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { isDesktop,  isMobileOnly, isTablet } from "react-device-detect";
 import { useAction } from "../../appState/Hooks/useAction";
 import { useTypeSelector } from "../../appState/Hooks/useTypedSelector";
-// import filterIcon from "../../assets/filter.svg";
+import filterIcon from "../../assets/filter.svg";
 import "./Filters.scss"
+import { videoPublishAfterFilter, videoTypeFilter } from "./filtersHelper";
 
 
 
@@ -42,7 +39,7 @@ const Filter:React.FC = () => {
         <h3>About {numberOfResults} filtered results</h3>
         <div className="filter__btn">
           <button onClick={() => setShowFilters(!showFilters)}>
-          {/* <img src={filterIcon} alt="filter" /> */}
+          <img src={filterIcon} alt="filter" />
           <span>Filter</span>
           </button>
         </div>
@@ -52,15 +49,14 @@ const Filter:React.FC = () => {
         <>
         <section className="filter__options">
         <select value={searchType} onChange={(e) => setSearchType(e.target.value)} className="select-lists">
-           <option value="All">All</option>
-            <option value="video">Video</option>
-            <option value="channel">Channel</option>
-            <option value="playlist">Playlist</option>
+        {videoTypeFilter.map((filter) => (
+              <option value={filter.value}>{filter.label}</option>
+            ))}
         </select>
         <select value={PublishedAfter}  onChange={(e) => setPublishAfter(e.target.value)} className="select-lists">
-          <option value="Anytime">Anytime</option>
-          <option value="LastMonth">LastMonth</option>
-          <option value="LastYear">LastYear</option>
+        {videoPublishAfterFilter.map((filter) => (
+              <option value={filter.value}>{filter.label}</option>
+            ))}
         </select>
       </section>
       </>       
