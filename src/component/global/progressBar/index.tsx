@@ -6,7 +6,7 @@ const [progessValue , setProgressBar] = useState(0)
 
 useEffect(() => {
 const _timer= setTimeout(() => {
-    setProgressBar(progessValue + 5)
+    setProgressBar(progessValue + 3)
 },100)
 
 return () => clearTimeout(_timer)
