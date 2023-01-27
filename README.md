@@ -3,7 +3,7 @@ search and filter functionality
 
 To start the app run "yarn dev"
 
--- The app this not totally finised or in the perfect shape due to lack of time.
+-- The app this not totally finised or in the perfect shape due to lack of time , Tests and enhancements need to be done.
 
 This is a small web app smiliar to youtube and its functionalities as search and filter consuming data from Youtube Api/V3 .
 
@@ -21,9 +21,9 @@ App state folder: contain redux actions,types,reducers
 
 copmonents folder: contain  some subfolders like 
             
-           global:components that can be used in the whole app
+   global:components that can be used in the whole app
            
-           other components: used in the screen folder
+   other components: used in the screen folder
            
 Screen: contain the screens of the app 
 
@@ -33,7 +33,9 @@ types: contain app types
 
 # App Architecture
 
-I tried to follow Flux Arch which is the same as redux data flow, and follow the guidelines of css and js as much as I can. plus add husky precommit to run eslint
+I followed Flux Arch which is the same Arch as redux data flow, I follow the guidelines of css and js as much as I can.
+
+I added husky precommit to run eslint and prettier
 
 and prettier.
 
