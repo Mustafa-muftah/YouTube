@@ -44,7 +44,6 @@ export const SearchPage: React.FC = () => {
 					<Channel
 						key={`${item.id.channelId}${index}`}
 						channelInfo={item}
-						channelIndex={index}
 					/>
 				);
 			}

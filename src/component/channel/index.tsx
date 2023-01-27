@@ -7,10 +7,9 @@ import "./Channel.scss"
 
 interface channelProps {
   channelInfo:any,
-  channelIndex:number
 }
 
-export const Channel:React.FC<channelProps>= ({channelInfo , channelIndex}) => {
+export const Channel:React.FC<channelProps>= ({channelInfo }) => {
 
   const {getYouTubeChannelDetails} =useAction()
   const channelDetails = useTypeSelector(state => state.search.channelDetails)

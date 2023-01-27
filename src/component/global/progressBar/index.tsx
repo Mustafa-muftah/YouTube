@@ -13,7 +13,7 @@ return () => clearTimeout(_timer)
 },[progessValue])
     return(
         <div className="progressBar__container">
-        <progress id="file" value={progessValue} max="100"></progress>
+        <progress value={progessValue} max="100"></progress>
         </div>
     )
 }
