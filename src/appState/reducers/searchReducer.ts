@@ -36,13 +36,13 @@ export const searchReducer = produce(
       case actionTypes.GET_YOUTUBE_SEARCH_RESULT:
         state.numberOfResults = action.payload.data.pageInfo.totalResults;
         if(action.payload.filter){
-          action.payload.data.items.forEach((item: any) => {
+          action.payload.data.items.forEach((item) => {
               state.searchList =[];
               state.searchList.push(item);
             })
         }
-        action.payload.data.items.forEach((item: any) => {
-          if(!state.searchList?.includes(item.etag)){
+        action.payload.data.items.forEach((item) => {
+          if(!state.searchList.find((x=> x.etag === item.etag))){
           state.searchList.push(item);
           }
         });
