@@ -1,7 +1,7 @@
 import { actionTypes } from "../types";
 import { searchActions } from "../actionTypes";
 import produce from "immer";
-import { Channel, SearchItems, VideoDetails, VideoStatistics } from "../../types";
+import { Channel, SearchItems, VideoDetails, VideoStatisticsType } from "../../types";
 
 export const initialState: {
   searchInputValue: string;
@@ -9,7 +9,7 @@ export const initialState: {
   NextpageToken: string;
   numberOfResults: number;
   videosDetalis: VideoDetails[];
-  videoStatics: VideoStatistics[];
+  videoStatics: VideoStatisticsType[];
   channelDetails: Channel[];
 } = {
   searchInputValue: "",
@@ -50,13 +50,19 @@ export const searchReducer = produce(
         return state;
 
       case actionTypes.GET_YOUTUBE_VIDEO_DETAILS:
+        if(!state.videosDetalis.find((x=> x.etag === action.payload.etag))){
         state.videosDetalis.push(action.payload);
+        }
         return state;
       case actionTypes.GET_YOUTUBE_VIDEO_STATICS:
+        if(!state.videoStatics.find((x=> x.etag === action.payload.etag))){
         state.videoStatics.push(action.payload);
+        }
         return state;
       case actionTypes.GET_YOUTUBE_CHANNEL_DETAILS:
+       if(!state.channelDetails.find((x=> x.etag === action.payload.etag))){
         state.channelDetails.push(action.payload);
+        }
         return state;
       default:
         return state;

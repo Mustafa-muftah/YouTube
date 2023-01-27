@@ -1,3 +1,5 @@
+import { Channel, VideoDetails, VideoStatisticsType } from "../types";
+
 export const convertDuration =(duration?:any)=> {
     let a = duration?.match(/\d+/g) 
   
@@ -50,4 +52,9 @@ export const numberWithSymbol =(num:number) => {
      return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
   }
   return num;
+}
+
+
+export const findIndexById =(videoDetails: VideoDetails[] | VideoStatisticsType[] | Channel[], id: string) => {
+  return videoDetails.findIndex(videoDetail => videoDetail.items.findIndex(item => item.id === id) > -1);
 }

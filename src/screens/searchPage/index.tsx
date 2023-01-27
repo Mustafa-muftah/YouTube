@@ -5,30 +5,28 @@ import { useTypeSelector } from '../../appState/Hooks/useTypedSelector';
 import './SearchResult.scss';
 import Filter from '../../component/filters';
 import Channel from '../../component/channel';
-import Video from '../../component/video/Video';
-import Spinner from '../../component/global/spinner/Spinner';
+import Video from '../../component/video';
+import Spinner from '../../component/global/spinner';
 import {  isMobile, isMobileOnly } from 'react-device-detect';
 import { SearchListType } from '../../types';
 import { ProgressBar } from '../../component/global/progressBar';
 
-export const SearchList: React.FC = () => {
+export const SearchPage: React.FC = () => {
 	const { getYouTubeList } = useAction();
-	const list = useTypeSelector((state) => state.search.searchList);
-  const searchInputValue = useTypeSelector((state) => state.search.searchInputValue);
-	const nextPageToken = useTypeSelector((state) => state.search.NextpageToken);
+	const {searchList , searchInputValue , NextpageToken} = useTypeSelector((state) => state.search);
 	const { isLoading } = useTypeSelector((state) => state.global);
 
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, [nextPageToken]);
+	}, [NextpageToken]);
 
 	const handleScroll = () => {
 		if (
 			window.innerHeight + document.documentElement.scrollTop >=
-			document.documentElement.offsetHeight - 20  
+			document.documentElement.offsetHeight - 10  
 		) {
-			searchInputValue.length> 0 && getYouTubeList(undefined, nextPageToken);
+			searchInputValue.length> 0 && getYouTubeList(undefined, NextpageToken);
 		}
 	};
 
@@ -38,9 +36,7 @@ export const SearchList: React.FC = () => {
 				return (
 					<Video
 						key={`${item.id.videoId}${index}`}
-						videoInfo={item}
-						videoIndex={index}
-					/>
+						videoInfo={item}					/>
 				);
 			} else {
 				return (
@@ -56,15 +52,15 @@ export const SearchList: React.FC = () => {
 
 	return (
 		<>
-			{isMobileOnly && isLoading && SearchList.length === 0 && <Spinner />}
+			{isMobileOnly && isLoading && searchList.length === 0 && <Spinner />}
 			{!isMobile && isLoading && <ProgressBar />}
 			<div className="searchResult__container">
 				<div className="filters__wrapper">
 					<Filter />
 				</div>
 				<div className="searchResults__wrapper">
-					{list.length > 0 && (
-						<>{renderChannelOrVideo(list as SearchListType[])}</>
+					{searchList.length > 0 && (
+						<>{renderChannelOrVideo(searchList as SearchListType[])}</>
 					)}
 				</div>
 			</div>

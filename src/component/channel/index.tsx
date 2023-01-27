@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import { useAction } from "../../appState/Hooks/useAction";
 import { useTypeSelector } from "../../appState/Hooks/useTypedSelector";
-import { numberWithCommas } from "../../utils";
+import { findIndexById, numberWithCommas } from "../../utils";
 import "./Channel.scss"
 
 interface channelProps {
@@ -35,8 +35,8 @@ export const Channel:React.FC<channelProps>= ({channelInfo , channelIndex}) => {
         />
         <div>
           <h3>{channelInfo.snippet.channelTitle}</h3>
-          <p>{channelDetails[channelIndex]?.items[0].statistics.videoCount!} videos</p>
-          <p>{totalSubscriptionConverter(channelDetails[channelIndex]?.items[0]?.statistics?.subscriberCount!)} subscribers</p>
+          <p>{channelDetails[findIndexById(channelDetails,channelInfo.id.channelId!)]?.items[0].statistics.videoCount!} videos</p>
+          <p>{totalSubscriptionConverter(channelDetails[findIndexById(channelDetails,channelInfo.id.channelId!)]?.items[0]?.statistics?.subscriberCount!)} subscribers</p>
         </div>
       </div>
     </div>

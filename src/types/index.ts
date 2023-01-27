@@ -86,7 +86,7 @@ export interface PageInfo {
 
 // Video Statistics
 
-export interface VideoStatistics {
+export interface VideoStatisticsType {
   kind:     string;
   etag:     string;
   items:    Item[];
@@ -119,10 +119,10 @@ export interface Channel {
   kind:     string;
   etag:     string;
   pageInfo: PageInfo;
-  items:    ChannelItem[];
+  items:    Item[];
 }
 
-export interface ChannelItem {
+export interface Item {
   kind:       string;
   etag:       string;
   channelId:         string;

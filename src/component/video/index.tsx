@@ -6,6 +6,7 @@ import { useTypeSelector } from "../../appState/Hooks/useTypedSelector";
 import { SearchListType } from "../../types";
 import {
   convertDuration,
+  findIndexById,
   numberWithCommas,
   numberWithSymbol,
 } from "../../utils";
@@ -13,12 +14,10 @@ import "./Video.scss";
 
 interface VideoPlayerProps {
   videoInfo: SearchListType;
-  videoIndex: number;
 }
 
 export const Video: React.FC<VideoPlayerProps> = ({
   videoInfo,
-  videoIndex,
 }) => {
   const { getYouTubeVideoDetails } = useAction();
   const { videosDetalis, videoStatics } = useTypeSelector(
@@ -29,6 +28,7 @@ export const Video: React.FC<VideoPlayerProps> = ({
     getYouTubeVideoDetails(videoInfo.id.videoId!);
   }, []);
 
+
   const totalViewsConverter = (totalViews: string) => {
     if (isMobile) {
       return numberWithCommas(totalViews);
@@ -37,8 +37,13 @@ export const Video: React.FC<VideoPlayerProps> = ({
     }
   };
 
+
+ 
+
+
   return (
     <div className="video">
+      
       <div
         className={`video-thumb ${isTablet && !isMobileOnly ? "Ipad" : ""}`}
         style={{
@@ -48,7 +53,7 @@ export const Video: React.FC<VideoPlayerProps> = ({
         <div className="duration">
           {videosDetalis.length > 0 &&
             convertDuration(
-              videosDetalis[videoIndex]?.items[0].contentDetails.duration!
+              videosDetalis[findIndexById(videosDetalis,videoInfo.id.videoId!)]?.items[0].contentDetails.duration!
             )}
         </div>
       </div>
@@ -62,7 +67,7 @@ export const Video: React.FC<VideoPlayerProps> = ({
               <p>
                 {videoStatics.length > 0 &&
                   totalViewsConverter(
-                    videoStatics[videoIndex]?.items[0]?.statistics.viewCount
+                    videoStatics[findIndexById(videoStatics,videoInfo.id.videoId!)]?.items[0]?.statistics.viewCount
                   )}
                 views
               </p>
@@ -74,7 +79,7 @@ export const Video: React.FC<VideoPlayerProps> = ({
                 <span>
                   {videoStatics.length > 0 &&
                     totalViewsConverter(
-                      videoStatics[videoIndex]?.items[0]?.statistics.viewCount
+                      videoStatics[findIndexById(videoStatics,videoInfo.id.videoId!)]?.items[0]?.statistics.viewCount
                     )}
                   views
                 </span>

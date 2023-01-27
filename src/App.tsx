@@ -1,14 +1,14 @@
 import './App.scss';
-import { SearchList } from './screens/searchList';
+import { SearchPage } from './screens/searchPage';
 import {Provider}  from "react-redux";
 import { Store } from "./appState";
-import { NavBar } from './component/navBar/NavBar';
+import { NavBar } from './component/navBar';
 
 function App() {
   return (
      <Provider store={Store}>
       <NavBar/>
-     <SearchList/>
+     <SearchPage/>
     </Provider>
 
   );

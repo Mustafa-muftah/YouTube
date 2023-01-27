@@ -24,7 +24,7 @@ const publishedAfterValue = publishedAfter && Store.getState().filter.PublishedA
     dispatch({
       type:actionTypes.Is_LOADING
     })
-    await axios.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyAg6uoBwnHdTqjv6dPZM4murBlmjPnYGIM&part=snippet&q=${searchInputValue}${nextPageToken}${searchTypeParams}${publishedAfterValue}`).then((res) => {
+    await axios.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyBRYkuGlSBU074kMfCFRx0w1GLt90-w_2Q&part=snippet&q=${searchInputValue}${nextPageToken}${searchTypeParams}${publishedAfterValue}`).then((res) => {
       dispatch({
         type: actionTypes.GET_YOUTUBE_SEARCH_RESULT,
         payload:{
@@ -42,13 +42,13 @@ const publishedAfterValue = publishedAfter && Store.getState().filter.PublishedA
 
 export const getYouTubeVideoDetails = (id:string) => {
     return async (dispatch: Dispatch<searchActions>) => {
-      await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=contentDetails&key=AIzaSyAg6uoBwnHdTqjv6dPZM4murBlmjPnYGIM`).then((res) => {
+      await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=contentDetails&key=AIzaSyBRYkuGlSBU074kMfCFRx0w1GLt90-w_2Q`).then((res) => {
         dispatch({
           type: actionTypes.GET_YOUTUBE_VIDEO_DETAILS,
           payload: res.data,
         })
       }).then(async() => {
-        await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=statistics&key=AIzaSyAg6uoBwnHdTqjv6dPZM4murBlmjPnYGIM`).then((res)=>{
+        await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=statistics&key=AIzaSyBRYkuGlSBU074kMfCFRx0w1GLt90-w_2Q`).then((res)=>{
           dispatch({
             type: actionTypes.GET_YOUTUBE_VIDEO_STATICS,
             payload: res.data,
@@ -61,7 +61,7 @@ export const getYouTubeVideoDetails = (id:string) => {
 
   export const getYouTubeChannelDetails = (id:string) => {
     return async (dispatch: Dispatch<searchActions>) => {
-      await axios.get(`https://www.googleapis.com/youtube/v3/channels?id=${id}&part=statistics&key=AIzaSyAg6uoBwnHdTqjv6dPZM4murBlmjPnYGIM`).then((res) => {
+      await axios.get(`https://www.googleapis.com/youtube/v3/channels?id=${id}&part=statistics&key=AIzaSyBRYkuGlSBU074kMfCFRx0w1GLt90-w_2Q`).then((res) => {
         dispatch({
           type: actionTypes.GET_YOUTUBE_CHANNEL_DETAILS,
           payload: res.data,

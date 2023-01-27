@@ -1,4 +1,4 @@
-import { Channel, ChannelItem, SearchListType, VideoDetails, VideoStatistics } from "../../types";
+import { Channel, SearchListType, VideoDetails, VideoStatisticsType } from "../../types";
 import { actionTypes } from "../types";
 
 export interface searchInputValue {
@@ -31,7 +31,7 @@ export interface getVideoDetails {
 
 export interface getVideoStatics {
   type: actionTypes.GET_YOUTUBE_VIDEO_STATICS;
-  payload: VideoStatistics;
+  payload: VideoStatisticsType;
 }
 
 export interface getChannelDetails {
