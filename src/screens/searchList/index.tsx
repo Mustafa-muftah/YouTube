@@ -62,7 +62,7 @@ export const SearchList: React.FC = () => {
           <Filter />
         </div>
         <div className="searchResults__wrapper">
-          <ul>{list.length > 0 && <li>{renderChannelOrVideo(list)}</li>}</ul>
+          <ul>{list.length > 0 && <li>{renderChannelOrVideo(list as SearchListType[])}</li>}</ul>
         </div>
       </div>
       </>

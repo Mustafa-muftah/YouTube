@@ -16,7 +16,6 @@ export const Channel:React.FC<channelProps>= ({channelInfo , channelIndex}) => {
   const channelDetails = useTypeSelector(state => state.search.channelDetails)
 
   useEffect(() => {    
-    console.log(channelDetails);
     getYouTubeChannelDetails(channelInfo.id.channelId)
   },[])
 

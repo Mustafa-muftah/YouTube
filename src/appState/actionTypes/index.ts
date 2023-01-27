@@ -1,3 +1,4 @@
+import { Channel, ChannelItem, SearchListType, VideoDetails, VideoStatistics } from "../../types";
 import { actionTypes } from "../types";
 
 export interface searchInputValue {
@@ -8,14 +9,9 @@ export interface searchInputValue {
 export interface getYouTubeSearchResult {
   type: actionTypes.GET_YOUTUBE_SEARCH_RESULT;
   payload: {
-    data:any,
+    data:SearchListType,
     filter:boolean
   };
-}
-
-export interface getYouTubeVideoList {
-  type: actionTypes.GET_YOUTUBE_VIDEO_LIST;
-  payload: any;
 }
 
 export interface setSearchType {
@@ -30,17 +26,17 @@ export interface setPublishAfter {
 
 export interface getVideoDetails {
   type: actionTypes.GET_YOUTUBE_VIDEO_DETAILS;
-  payload: any[];
+  payload: VideoDetails;
 }
 
 export interface getVideoStatics {
   type: actionTypes.GET_YOUTUBE_VIDEO_STATICS;
-  payload: any[];
+  payload: VideoStatistics;
 }
 
 export interface getChannelDetails {
   type: actionTypes.GET_YOUTUBE_CHANNEL_DETAILS;
-  payload: any[];
+  payload: Channel;
 }
 
 export interface isLoading {
@@ -55,7 +51,6 @@ export interface loadingIsFinished {
 
 export type searchActions =
   | getYouTubeSearchResult
-  | getYouTubeVideoList
   | searchInputValue
   | getVideoDetails
   | getVideoStatics

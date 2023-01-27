@@ -33,7 +33,6 @@ const Filter:React.FC = () => {
   }
  },[searchInputValue])
 
- console.log(showFilters);
  
 
   return (

@@ -1,19 +1,19 @@
 import { actionTypes } from "../types";
 import { searchActions } from "../actionTypes";
-import produce, { current } from "immer";
-import { SearchListType } from "../../types";
+import produce from "immer";
+import { Channel, SearchItems, VideoDetails, VideoStatistics } from "../../types";
 
 export const initialState: {
   searchInputValue: string;
-  searchList: SearchListType[];
+  searchList: SearchItems[];
   NextpageToken: string;
   numberOfResults: number;
-  videosDetalis: any;
-  videoStatics: any;
-  channelDetails: any;
+  videosDetalis: VideoDetails[];
+  videoStatics: VideoStatistics[];
+  channelDetails: Channel[];
 } = {
   searchInputValue: "",
-  searchList: [],
+  searchList: []  ,
   NextpageToken: "",
   numberOfResults: 0,
   videosDetalis: [],
