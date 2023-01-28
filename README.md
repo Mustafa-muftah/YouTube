@@ -3,9 +3,13 @@ search and filter functionality
 
 To start the app run "yarn dev"
 
-To test the app run "yarn test"
+To test the app run "yarn test" 
+
+--  This app is built by Vite module bundler
 
 -- The app this not totally finised or in the perfect shape due to lack of time , Tests and enhancements need to be done.
+
+(still working on it )
 
 This is a small web app smiliar to youtube and its functionalities as search and filter consuming data from Youtube Api/V3 .
 
@@ -15,7 +19,9 @@ This web app was built with reactjs with typescripts and Sass
 
 ## Dependecies
 
-redux, redux-thunk, moment, react-device-detectable, immer, eslint,fortawesom, prettier and axios
+redux, redux-thunk, moment, react-device-detectable, immer, eslint,fortawesom, prettier, axios, jest, @testing-library,
+
+husky, redux-mock-store
 
 # App Structure 
 
