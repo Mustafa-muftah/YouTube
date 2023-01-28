@@ -3,6 +3,10 @@ search and filter functionality
 
 To start the app run "yarn dev"
 
+-- You need to generate youtube API-KEY and use inside the the searchActions.ts inside action creator dir in the appstate
+
+ folder instead of  ${process.env.API_KEY}.
+
 To test the app run "yarn test" 
 
 --  This app is built by Vite module bundler
@@ -25,9 +29,9 @@ husky, redux-mock-store
 
 # App Structure 
 
-App state folder: contain redux actions,types,reducers
+App state folder: contain redux actions,types and reducers
 
-copmonents folder: contain  some subfolders like 
+copmonents folder: contain some subfolders like 
             
    global:components that can be used in the whole app
            
@@ -45,8 +49,6 @@ I followed Flux Arch which is the same Arch as redux data flow, I follow the gui
 
 I added husky precommit to run eslint and prettier
 
-and prettier.
-
 # App Design
 
-I followed the design as much as I dont have assets or aspect ratio.
+I followed the design as much as I dont have assets or aspect ratio and still need alot of adjustment.
