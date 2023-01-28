@@ -1,3 +1,4 @@
+import { isMobile } from "react-device-detect";
 import { Channel, VideoDetails, VideoStatisticsType } from "../types";
 
 export const convertDuration =(duration?:any)=> {
@@ -58,3 +59,12 @@ export const numberWithSymbol =(num:number) => {
 export const findIndexById =(videoDetails: VideoDetails[] | VideoStatisticsType[] | Channel[], id: string) => {
   return videoDetails.findIndex(videoDetail => videoDetail.items.findIndex(item => item.id === id) > -1);
 }
+
+
+export const totalViewsConverter = (totalViews: string) => {
+  if (isMobile) {
+    return numberWithCommas(totalViews);
+  } else {
+    return numberWithSymbol(Number(totalViews));
+  }
+};

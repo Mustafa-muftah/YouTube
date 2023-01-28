@@ -9,6 +9,7 @@ import {
   findIndexById,
   numberWithCommas,
   numberWithSymbol,
+  totalViewsConverter,
 } from "../../utils";
 import "./Video.scss";
 
@@ -29,13 +30,7 @@ export const Video: React.FC<VideoPlayerProps> = ({
   }, []);
 
 
-  const totalViewsConverter = (totalViews: string) => {
-    if (isMobile) {
-      return numberWithCommas(totalViews);
-    } else {
-      return numberWithSymbol(Number(totalViews));
-    }
-  };
+
 
 
  

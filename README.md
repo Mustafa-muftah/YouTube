@@ -3,6 +3,8 @@ search and filter functionality
 
 To start the app run "yarn dev"
 
+To test the app run "yarn test"
+
 -- The app this not totally finised or in the perfect shape due to lack of time , Tests and enhancements need to be done.
 
 This is a small web app smiliar to youtube and its functionalities as search and filter consuming data from Youtube Api/V3 .
