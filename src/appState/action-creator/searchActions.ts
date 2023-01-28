@@ -25,7 +25,7 @@ const publishedAfterValue = publishedAfter || Store.getState().filter.PublishedA
     dispatch({
       type:actionTypes.Is_LOADING
     })
-    await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${import.meta.env.VITE_API_KEY}&part=snippet&q=${searchInputValue}${nextPageToken}${searchTypeParams}${publishedAfterValue}`).then((res) => {
+    await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&part=snippet&q=${searchInputValue}${nextPageToken}${searchTypeParams}${publishedAfterValue}`).then((res) => {
       dispatch({
         type: actionTypes.GET_YOUTUBE_SEARCH_RESULT,
         payload:{
@@ -43,13 +43,13 @@ const publishedAfterValue = publishedAfter || Store.getState().filter.PublishedA
 
 export const getYouTubeVideoDetails = (id:string) => {
     return async (dispatch: Dispatch<searchActions>) => {
-      await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=contentDetails&key=${import.meta.env.VITE_API_KEY}`).then((res) => {
+      await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=contentDetails&key=${process.env.API_KEY}`).then((res) => {
         dispatch({
           type: actionTypes.GET_YOUTUBE_VIDEO_DETAILS,
           payload: res.data,
         })
       }).then(async() => {
-        await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=statistics&key=${import.meta.env.VITE_API_KEY}`).then((res)=>{
+        await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=statistics&key=${process.env.API_KEY}`).then((res)=>{
           dispatch({
             type: actionTypes.GET_YOUTUBE_VIDEO_STATICS,
             payload: res.data,
@@ -62,7 +62,7 @@ export const getYouTubeVideoDetails = (id:string) => {
 
   export const getYouTubeChannelDetails = (id:string) => {
     return async (dispatch: Dispatch<searchActions>) => {
-      await axios.get(`https://www.googleapis.com/youtube/v3/channels?id=${id}&part=statistics&key=${import.meta.env.VITE_API_KEY}`).then((res) => {
+      await axios.get(`https://www.googleapis.com/youtube/v3/channels?id=${id}&part=statistics&key=${process.env.API_KEY}`).then((res) => {
         dispatch({
           type: actionTypes.GET_YOUTUBE_CHANNEL_DETAILS,
           payload: res.data,

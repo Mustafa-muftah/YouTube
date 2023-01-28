@@ -5,6 +5,8 @@ import { useTypeSelector } from "../../appState/Hooks/useTypedSelector";
 import { findIndexById, numberWithCommas } from "../../utils";
 import "./Channel.scss"
 
+
+
 interface channelProps {
   channelInfo:any,
 }
