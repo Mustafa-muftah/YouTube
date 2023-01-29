@@ -42,23 +42,24 @@ const publishedAfterValue = publishedAfter || Store.getState().filter.PublishedA
 };
 
 export const getYouTubeVideoDetails = (id:string) => {
-    return async (dispatch: Dispatch<searchActions>) => {
-      await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=contentDetails&key=${process.env.API_KEY}`).then((res) => {
-        dispatch({
-          type: actionTypes.GET_YOUTUBE_VIDEO_DETAILS,
-          payload: res.data,
-        })
-      }).then(async() => {
-        await axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=statistics&key=${process.env.API_KEY}`).then((res)=>{
-          dispatch({
-            type: actionTypes.GET_YOUTUBE_VIDEO_STATICS,
-            payload: res.data,
-          })
-        })
+  return async (dispatch: Dispatch<searchActions>) => {
+      const [details, statistics] = await Promise.all([
+        axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=contentDetails&key=${process.env.API_KEY}`),
+        axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${id}&part=statistics&key=${process.env.API_KEY}`)
+      ]);
+      dispatch({
+        type: actionTypes.GET_YOUTUBE_VIDEO_DETAILS,
+        payload: details.data,
+      });
 
-      })
-    };
+      dispatch({
+        type: actionTypes.GET_YOUTUBE_VIDEO_STATICS,
+        payload: statistics.data,
+      });
+   
   };
+};
+
 
   export const getYouTubeChannelDetails = (id:string) => {
     return async (dispatch: Dispatch<searchActions>) => {
