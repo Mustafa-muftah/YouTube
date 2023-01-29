@@ -12,7 +12,7 @@ const _timer= setTimeout(() => {
 return () => clearTimeout(_timer)
 },[progessValue])
     return(
-        <div className="progressBar__container">
+        <div className="progressBar__container" data-testid="progress-bar">
         <progress value={progessValue} max="100"></progress>
         </div>
     )

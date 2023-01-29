@@ -28,8 +28,7 @@ export const Channel:React.FC<channelProps>= ({channelInfo }) => {
 
 
   return (
-    <div>
-      <div className="channel__container">
+      <div className="channel__container" data-testid="channel">
         <img
           src={channelInfo.snippet.thumbnails.high.url}
           alt="channel-thumb"
@@ -40,7 +39,6 @@ export const Channel:React.FC<channelProps>= ({channelInfo }) => {
           <p>{totalSubscriptionConverter(channelDetails[findIndexById(channelDetails,channelInfo.id.channelId!)]?.items[0]?.statistics?.subscriberCount!)} subscribers</p>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -37,8 +37,7 @@ export const Video: React.FC<VideoPlayerProps> = ({
 
 
   return (
-    <div className="video">
-      
+    <div className="video" data-testid="video">
       <div
         className={`video-thumb ${isTablet && !isMobileOnly ? "Ipad" : ""}`}
         style={{

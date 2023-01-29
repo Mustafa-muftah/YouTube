@@ -38,7 +38,7 @@ const Filter:React.FC = () => {
        <div className="filter__Wrapper">
         <h3>About {numberOfResults} filtered results</h3>
         <div className="filter__btn">
-          <button onClick={() => setShowFilters(!showFilters)}>
+          <button onClick={() => setShowFilters(!showFilters)} data-testid={"toggle-filter-button"}>
           <img src={filterIcon} alt="filter" />
           <span>Filter</span>
           </button>
@@ -48,14 +48,14 @@ const Filter:React.FC = () => {
         { (isMobileOnly || showFilters ) &&  
         <>
         <section className="filter__options">
-        <select value={searchType} onChange={(e) => setSearchType(e.target.value)} className="select-lists">
+        <select value={searchType} onChange={(e) => setSearchType(e.target.value)} className="select-lists" data-testid="video-type-filter">
         {videoTypeFilter.map((filter) => (
-              <option value={filter.value}>{filter.label}</option>
+              <option value={filter.value} data-testid={filter.value}>{filter.label}</option>
             ))}
         </select>
-        <select value={PublishedAfter}  onChange={(e) => setPublishAfter(e.target.value)} className="select-lists">
+        <select value={PublishedAfter}  onChange={(e) => setPublishAfter(e.target.value)} className="select-lists" data-testid="video-publishAfter-filter">
         {videoPublishAfterFilter.map((filter) => (
-              <option value={filter.value}>{filter.label}</option>
+              <option value={filter.value} data-testid={filter.value}>{filter.label}</option>
             ))}
         </select>
       </section>

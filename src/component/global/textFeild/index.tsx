@@ -22,6 +22,7 @@ export const TextFeild: React.FC = () => {
     <>
       <div className="textFeild__wrapper">
         <input
+          data-testid={"text-feild"}
           value={value}
           onChange={(e) => search(e.target.value)}
           type="text"
@@ -30,13 +31,14 @@ export const TextFeild: React.FC = () => {
         />
         {value.length > 0 ? (
           <button
+            data-testid={"remove-button"}
             onClick={() => search("")}
             className="textFeild__wrapper removeBtn"
           ></button>
         ) : (
           ""
         )}
-        <button className="textFeild__wrapper submit" onClick={handleClick}>
+        <button  data-testid={"search-button"} className="textFeild__wrapper submit" onClick={handleClick}>
             <FontAwesomeIcon icon={faSearch as IconProp} />
         </button>
       </div>
