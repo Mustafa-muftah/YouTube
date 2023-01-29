@@ -1,21 +1,26 @@
 # YouTube
 search and filter functionality
 
-To start the app run "yarn dev"
+This is a small web app smiliar to youtube and its functionalities as search and filter consuming data from Youtube Api/V3 .
 
--- You need to generate youtube API-KEY and use inside the the searchActions.ts inside action creator dir in the appstate
+This app is built by Vite module bundler.
+
+--> The app this not totally finised or in the perfect shape due to lack of time , Tests, enhancements, fix github actions workflow and husky precommit and UI fixes need to be done. 
+
+-- run "yarn dev" to start the app
+
+ You need to generate youtube API-KEY and use inside the the searchActions.ts inside action creator dir in the appstate
 
  folder instead of  ${process.env.API_KEY}.
 
-To test the app run "yarn test" 
+-- run "yarn test" to execute a unit test 
 
---  This app is built by Vite module bundler
+Unit tests in the project is for the components
 
--- The app this not totally finised or in the perfect shape due to lack of time , Tests and enhancements need to be done.
+-- run "yarn test-ui" to execute E2E test
 
-(still working on it )
+E2E test is for screens 
 
-This is a small web app smiliar to youtube and its functionalities as search and filter consuming data from Youtube Api/V3 .
 
 ## App Tech Stack:
 
@@ -25,7 +30,7 @@ This web app was built with reactjs with typescripts and Sass
 
 redux, redux-thunk, moment, react-device-detectable, immer, eslint,fortawesom, prettier, axios, jest, @testing-library,
 
-husky, redux-mock-store
+husky, redux-mock-store, playwright
 
 # App Structure 
 
